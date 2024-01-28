@@ -1,0 +1,16 @@
+Volume Converter for Litres to Gallons conversion
+
+Working
+=======
+We need to enter volume in litres to get conversion in gallons and vice versa. For this we are making use of the addEventListener() method. 
+The input event fires when the value of <input> element has been changed as a direct result of a user action (in our case, typing in a textbox)
+
+Input Validations
+=================
+alerts are raised when
+1. the volume entered in litres or gallons field is negative.
+2. the volume entered in litres or gallons field has more than 15 digits. 
+
+=> We have set the max limit for volume entered as 15 digits. 
+=> The converted value has been rounded off to 2 decimals.
+=> Since the input field type is number for both litres and gallons, we cannot enter spaces and special characters.
