@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Volume Converter</title>
+        <style>
+            * {font-size:50px;}
+            body { background-color: skyblue; }
+            table { border-spacing: 50px; }
+            input { text-align: center; }
+        </style>
+    </head>
+    <body>
+        <form>
+            <table align="center">
+            <caption>Volume Converter</caption>
+            <tr>
+            <td><input type="number" step='any' placeholder="volume in litres" id="lit"/></td>
+            <td><label for="lit">Litres</label></td>
+            </tr>
+            <tr>
+            <td><input type="number" step='any' placeholder="volume in gallons" id="gal"/></td>
+            <td><label for="gal">Gallons (US)</label></td>
+            </tr>
+            </table>
+        </form>
+        <script>
+            let lit=document.getElementById('lit');
+            let gal=document.getElementById('gal');
+
+            lit.addEventListener('input', function(){
+                let l=parseFloat(lit.value);
+                if (l<0) {
+                    alert('litre volume entered cannot be negative');
+                    lit.value='';
+                }
+                else if (lit.value.replace('.','').length>15) {
+                    alert('litre volume entered cannot be more than 15 digits');
+                    lit.value='';
+                    gal.value='';
+                }
+                else{
+                    let g=(0.264172 * l);
+                    gal.value=g.toFixed(2);
+                }
+            })
+
+            gal.addEventListener('input', function(){
+                let g=parseFloat(gal.value);
+                if (g<0) {
+                    alert('gallon volume entered cannot be negative');
+                    gal.value='';
+                }
+                else if (gal.value.replace('.','').length>15) {
+                    alert('gallon volume entered cannot be more than 15 digits');
+                    gal.value='';
+                    lit.value='';
+                }
+                else{                     
+                    let l=(3.785412 * g);
+                    lit.value=l.toFixed(2);
+                }
+            })
+        </script>
+    </body>
+</html>
